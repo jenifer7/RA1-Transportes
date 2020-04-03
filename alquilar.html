@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/mystyle.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-    <div class="container">
+    <div>
         <nav class="header-nav" role="navigation">
             <div class="container">
                 <div class="grid">
@@ -19,7 +21,7 @@
                     <div class="column-xs-12 column-md-2">
                         <ul>
                             <li><a class="header-nav--item" href="index.html" class="active">Inicio</a></li>
-                            <li><a class="header-nav--item" href="alquilar.html">Alquilar</a></li>
+                            <li><a class="header-nav--item" href="alquilar.html">Rentar</a></li>
                             <li><a class="header-nav--item" href="contacto.html">Contactanos</a></li>
                         </ul>
                     </div>
@@ -27,6 +29,148 @@
             </div>
         </nav>
     </div>
+    <div class="container">
+        <div class="contenedor">
+            <h1 id="titulo">Rentar Auto</h1>
+            <form method="POST" action="">
+                <div>
+                    <label for="nombre" class="propiedad">Nombre</label>
+                    <br>
+                    <input type="text" id="nombre" name="fullname" maxlength="30" size="30" placeholder="Nombre"
+                        required="required" autofocus="autofocus" />
+                </div>
+                <div>
+                    <label for="nacion" class="propiedad">Apellidos</label>
+                    <br>
+                    <input type="text" id="nacion" name="nacion" maxlength="30" size="30" placeholder="Pais"
+                        required="required" autofocus="autofocus" />
+                </div>
+                <div>
+                    <label for="apellidos" class="propiedad">Apellidos</label>
+                    <br>
+                    <input type="text" id="apellidos" name="lastname" maxlength="30" size="30" placeholder="Apellidos"
+                        required="required" autofocus="autofocus" />
+                </div>
+                <div>
+                    <label for="genero" class="propiedad">Género</label>
+                    <br>
+                    <input type="radio" id="hombre" name="genre" value="hombre" />
+                    <label for="hombre" class="de-radio">Hombre</label>
+                    <input type="radio" id="mujer" name="genre" value="mujer" checked="checked" />
+                    <label for="mujer" class="de-radio">Mujer</label>
+                </div>
+                <div>
+                    <label for="identificacion" class="propiedad">No. Identificación</label>
+                    <br>
+                    <input type="identificacion" id="identificacion" name="identificacion" size="30"
+                        placeholder="DPI u otro" required="required" />
+                </div>
+                <div>
+                    <label for="fecha" class="propiedad">Fecha de nacimiento</label>
+                    <br>
+                    <input type="date" id="fecha" name="birthdate" />
+                </div>
+                <div>
+                    <label for="licencia" class="propiedad">Licencia de Conducir</label>
+                    <br>
+                    <input type="text" id="licencia" name="licencia" size="30" placeholder="No.Licencia"
+                        required="required" />
+                </div>
+                <div>
+                    <label for="cad_licencia" class="propiedad">Vencimiento Licencia de Conducir</label>
+                    <br>
+                    <input type="date" id="cad_licencia" name="cad_licencia" size="30" placeholder="Fecha"
+                        required="required" />
+                </div>
+                <br>
+                <hr>
+                <br>
+                <div>
+                    <label for="email" class="propiedad">Email</label>
+                    <input type="email" id="email" name="email" maxlength="30" size="30" placeholder="Email">
+                </div>
+                <div>
+                    <label for="telefono" class="propiedad">Teléfono</label>
+                    <input type="tel" id="telefono" name="phonenumber" maxlength="9" size="11" placeholder="Teléfono)"
+                        pattern="[0-9]{9}" />
+                </div>
+                <div>
+                    <label for="otro" class="propiedad">Teléfono</label>
+                    <input type="text" id="otro" name="otro" maxlength="30" size="30" placeholder="Otro...">
+                </div>
+                <br>
+                <div>
+                    <label for="costo" class="propiedad">Cuanto desea gastar</label>
+                    <br>
+                    <input type="range" id="costo" name="earnings" min="600" max="2000" step="200" value="1000"
+                        list="valores-costo" onchange="document.querySelector('#costo-output').value = value;">
+                    <output for="costo" id="costo-output">1000</output>
+                    <datalist id="valores-costo">
+                        <option>600</option>
+                        <option>800</option>
+                        <option>1000</option>
+                        <option>1400</option>
+                        <option>1800</option>
+                        <option>2000</option>
+                    </datalist>
+                </div>
+                <br>
+                <div>
+                    <label for="tipo" class="propiedad">Tipo de Transporte</label>
+                    <select id="tipo" name="tipo" required="required">
+                        <option value="">- Seleccione -</option>
+                        <option value="uno">Terrestre</option>
+                        <option value="dos">Maritimo</option>
+                        <option value="tres">Aereo</option>
+                    </select>
+                </div>
+                <br>
+                <div>
+                    <label for="tipo" class="propiedad">Tipo de Vehiculo</label>
+                    <select id="tipo" name="tipo" required="required">
+                        <option value="">- Seleccione -</option>
+                        <option value="uno">Automovil</option>
+                        <option value="uno">Camioneta</option>
+                        <option value="dos">Limocina</option>
+                        <option value="tres">Bus</option>
+                        <option value="tres">Avion</option>
+                        <option value="tres">Avioneta</option>
+                        <option value="tres">Yate</option>
+                        <option value="tres">Lancha Motor</option>
+                    </select>
+                </div>
+                <br>
+                <div>
+                    <h5>Tiempo de Uso</h5>
+                    <label for="fecha_inicio">Inicio</label>
+                    <input type="date">
+                    <label for="fecha_inicio">Fin</label>
+                    <input type="date">
+                </div>
+                <br>
+                <!-- Botones -->
+                <div class="fila botonera">
+                    <button class="boton" type="submit">Enviar</button>
+                    <button class="boton" type="reset">Cancelar</button>
+                </div>
+                </ul>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="grid">
+                <div class="column-xs-12">
+                    <ul class="social">
+                        <li><a><span class="fa fa-twitter"></span></a></li>
+                        <li><a><span class="fa fa-facebook"></span></a></li>
+                        <li><a><span class="fa fa-instagram"></span></a></li>
+                    </ul>
+                    <h6 class="copyright">&copy;Copyright 2018 Kato</h6>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
