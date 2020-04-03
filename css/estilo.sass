@@ -7,8 +7,6 @@ $footer: #f7f7f7
 $db: #2f3238
 $dc: #f5f5f5
 $lb: #f9f9f9
-$lc: #1a1a1a
-$l: #1abc89
 
 // margen para las paginas
 * 
@@ -63,15 +61,79 @@ nav
 .img-container 
   cursor: pointer
   overflow: hidden
-  &:hover .img-content-hover 
+  &:hover .img-content-hover
     display: block
 
-img 
-  height: 200px
+// Transicion en las imagenes
+.card
+  width: 100%
+  height: 400px
+  padding: 1.5rem
+  position: relative
+  display: flex
+  align-items: flex-end
+  transition: 0.4s ease-out
+  &:hover
+    transform: translateY(20px)
+    &:before
+      opacity: 1
+    .info
+      opacity: 1
+      transform: translateY(0px)
+  &:before
+    content: ""
+    position: absolute
+    top: 0
+    left: 0
+    display: block
+    width: 100%
+    height: 100%
+    background: rgba(#1C3144, 0.6)
+    z-index: 2
+    transition: 0.5s
+    opacity: 0
+  img
+  	width: 100%
+  	height: 100%
+  	object-fit: cover
+  	position: absolute
+  	top: 0
+  	left: 0
+
+.info
+	z-index: 2
+	position: relative
+	color: white
+	opacity: 0
+	transform: translateY(30px)
+	transition: 0.5s
+	h1
+		margin: 0px
+	p
+		letter-spacing: 1px
+		font-size: 15px
+		margin-top: 8px
+	button
+		padding: 0.6rem
+		outline: none
+		border: none
+		border-radius: 3px
+		background: white
+		color: black
+		font-weight: bold
+		cursor: pointer
+		transition: 0.4s ease
+		&:hover
+			background: dodgerblue
+			color: white
+
+img
+  width: 100%
+  height: 400px
   object-fit: cover
   transform: scale(1)
   transition: all 0.3s ease-in-out
-  &:hover 
+  &:hover
     transform: scale(1.05)
 
 .img-content-hover 
@@ -103,7 +165,6 @@ img
   overflow: hidden
   margin: 5px
   cursor: pointer
-  transform: translateZ(0)
 
 /* Titulo de las imagenes */
 .title 
@@ -128,6 +189,11 @@ img
 footer 
   background: $footer
   text-align: center
+
+footer
+  display: flex
+  align-items: center
+  justify-content: center 
 
 // Usado para el ancho de la barra de navegacion en la pantalla
 @media(min-width: 500px) 
@@ -159,39 +225,34 @@ h1
   font-weight: 600
 
 .contenedor
-    width: 80%
-    margin: 1rem auto
-    padding: 1rem
-    background-color: $white
+  width: 80%
+  margin: 1rem auto
+  padding: 1rem
+  background-color: $white
 
 .titulo
-    text-align: center
-    padding: 1rem
-    margin-bottom: 1rem
-    border-bottom: 2px solid $black
+  text-align: center
+  padding: 1rem
+  margin-bottom: 1rem
+  border-bottom: 2px solid $black
 
 form
-    padding: 1rem
+  padding: 1rem
 
 input
-    font-size: 0.9rem
-    padding: 0.3rem
+  font-size: 0.9rem
+  padding: 0.3rem
 
 option
-    font-size: 0.9rem
-    padding: 5px 1rem
+  font-size: 0.9rem
+  padding: 5px 1rem
 
 .propiedad
-    flex-basis: 100%
-    text-align: left
-    margin-bottom: 0.3rem
-    &:invalid, ::after
-        left: 0
-
-.raise:hover,
-.raise:focus 
-  box-shadow: 0 0.5em 0.5em -0.4em var(--hover)
-  transform: translateY(-0.25em)
+  flex-basis: 100%
+  text-align: left
+  margin-bottom: 0.3rem
+  &:invalid, ::after
+    left: 0
 
 button
   background: none
@@ -199,26 +260,221 @@ button
   font: inherit
   line-height: 1
   margin: 0.5em
-  padding: 1em 2em
+  padding: 1em 2em 
 
-footer
-  display: flex
-  align-items: center
-  justify-content: center
+.category 
+  font-size: 1rem
+  color: $gray
 
-/*Variables pasa asignar el color*/
-$color-twitter: #2b97f1
-$color-instagram: #527fa6
-$color-linkedin: #006599
-$color-facebook: #3b5a9b
+.img-content
+  display: none
 
-/* Social Icon Mixin */
-@mixin social-icon($color)
-  background: $color
-  color: #fff
+.img-container
+  height: 100%
+  &:hover .img-content-hover
+    display: none
+
+.img-content
+  display: block
+
+/* Animacion en el texto Bienvenidos, el texto aumenta su tamaño y se desplaza
+ de derecha a izquierda en la pantalla */
+.titulo 
+  animation-duration: 3s
+  animation-name: slidein
+
+@keyframes slidein 
+  from
+    margin-left: 100%
+    width: 300%
+  75%
+    font-size: 200%
+  to
+    margin-left: 0%
+    width: 100%
+
+.box 
+  align-items: center;
+  background: #03A9F4;
+  border-radius: 4px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  color: white;
+  display: flex;
+  font: 30px "roboto", sans-serif;
+  font-weight: 100;
+  justify-content: center;
+  margin: 10px;
+  padding: 10px;
+  transition: all 400ms ease-in-out;
+
+.box p 
+  padding-left: 5px;
+
+.box1:hover 
+  background: #00E676;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+.box1:active 
+  background: #69F0AE;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 50ms;
+
+.box2:hover 
+  background: #F44336;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)
+
+.box2:active 
+  background: #E57373;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 50ms;
+
+@media (max-width: 752px) 
+  .box1
+    border-radius: 100%;
+    height: 45px
+    width: 45px
   
-    &:after
-      border-top-color: $color
+  .box1 p 
+    display: none
+
+  .box2 
+    border-radius: 100%
+    height: 45px
+    width: 45px
   
-.social-icons 
+  .box2 p 
+    display: none
+
+
+.transform-rotate
+  transform: rotateY(0deg)  
+  perspective: 15
+  transition: transform 3s linear
+  
+  &:hover
+    transform: rotateY(180deg)
+
+@mixin flex
+  display: -webkit-flex
   display: flex
+  color: pink
+
+.row
+  @include flex
+
+
+@mixin campos
+  font-size: 18px
+  padding: 10px 10px 10px 5px
+  display: block
+  width: 300px
+  border: none
+  border-bottom: 1px solid #757575
+  &:focus
+    outline: none
+
+input
+  @include campos
+
+@mixin tipo
+  position: relative
+  display: block
+  width: 250px
+  padding: 0 84px 0 22px
+  font-size: 16px
+  line-height: 60px
+  border-radius: 4px
+  cursor: pointer
+
+
+#tipo
+  @include tipo
+
+
+@mixin rango
+  box-sizing: border-box
+  width: 100%
+  height: 4px
+  background: #e6e6e6
+  border-radius: 100px
+
+.costo
+  @include rango  
+  
+$height-range-bounds: 22px
+$background-color-range-thumb: #333940
+$radius-range-thumb: 100px
+$height-range-thumb: 24px
+$width-range-thumb: 24px
+$size-range-thumb-shadow: 25px
+$color-range-thumb-shadow: rgba(#000, .5)
+$shadow-offset-y-range-thumb: 4px
+$shadow-offset-x-range-thumb: 0px
+$border-width-range-thumb: 6px;
+$border-color-range-thumb: #fff
+$width-range-track: 100%
+$height-range-track: 4px
+
+
+.range 
+	@mixin range-track() 
+
+	@mixin range-thumb() 
+		box-sizing: border-box
+		box-shadow: $shadow-offset-x-range-thumb $shadow-offset-y-range-thumb $size-range-thumb-shadow $color-range-thumb-shadow;
+		border: $border-width-range-thumb solid $border-color-range-thumb;
+		height: $height-range-thumb
+		width: $width-range-thumb
+		border-radius: $radius-range-thumb
+		background: $background-color-range-thumb
+		cursor: pointer
+	position: relative
+
+	input[type=range] 
+		appearance: none
+		padding: 0
+		width: $width-range-track
+		height: $height-range-bounds
+		cursor: pointer
+		display: block
+
+		&:focus 
+			outline: none;
+	
+		&[disabled] 
+			opacity: .3;
+			cursor: default;
+	
+	input::-webkit-slider-runnable-track, 
+		@include range-track();
+		margin: $height-range-bounds / 2 0;
+
+	input::-webkit-slider-thumb 
+		@include range-thumb();
+		appearance: none;
+		transform: translateY(-50%);
+		margin-top: $height-range-track / 2;
+
+@mixin formulario
+  box-shadow: 0 1px 6px rgba(32,33,36 ,.28 )
+  border-radius: .5rem
+  padding: 20px
+  box-sizing: border-box
+  color: #444444
+  font-size: 14px
+  line-height: 1.5
+  
+form 
+  @include formulario
+
+
+@mixin radioB
+  border: none
+  cursor: pointer
+  display: inline-block
+  outline: none
+  z-index: 1000
+  
+
+.radios
+  @include radioB
